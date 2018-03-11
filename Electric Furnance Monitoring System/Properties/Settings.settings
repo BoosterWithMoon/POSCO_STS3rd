@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Electric_Furnance_Monitoring_System.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Emissivity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.7</Value>
+    </Setting>
+    <Setting Name="Transmittance" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.6</Value>
+    </Setting>
+    <Setting Name="Colorbar" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MULTICOLOR</Value>
+    </Setting>
+    <Setting Name="NumberOfColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">128</Value>
+    </Setting>
+    <Setting Name="Maximum" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="Minimum" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="ISOTherm" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="RawDataPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\</Value>
+    </Setting>
+    <Setting Name="ResultDataPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\</Value>
+    </Setting>
+    <Setting Name="Threshold" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

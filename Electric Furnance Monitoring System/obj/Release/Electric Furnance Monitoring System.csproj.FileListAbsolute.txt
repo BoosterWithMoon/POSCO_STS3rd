@@ -1,0 +1,36 @@
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System\Electric Furnance Monitoring System\bin\Release\Electric Furnance Monitoring System.exe.config
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System\Electric Furnance Monitoring System\obj\Release\Interop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System\Electric Furnance Monitoring System\obj\Release\AxInterop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.csproj.ResolveComReference.cache
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Electric Furnance Monitoring System.exe.config
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Interop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\AxInterop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.csproj.ResolveComReference.cache
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Electric Furnance Monitoring System.exe
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Electric Furnance Monitoring System.pdb
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.BrowseControls.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.DA_Junction.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.KEPServerExControls.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.OpcClient.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.BrowseControls.xml
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.DA_Junction.xml
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Kepware.ClientAce.OpcClient.xml
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\Interop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Release\AxInterop.TeeChart.dll
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM1_ChartView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM2_ChartView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.OnlyOne_ChartView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM1_DataGridView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM2_DataGridView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.OnlyOne_DataGridView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM1_ImageView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.CAM2_ImageView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.OnlyOne_ImageView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.MainForm.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.NewDeviceForm.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.Properties.Resources.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.ResultView.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.TopView.CAM1_Info.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.csproj.GenerateResource.Cache
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.exe
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.pdb
