@@ -38,6 +38,11 @@ namespace Electric_Furnance_Monitoring_System
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            if (main.currentOpenMode == MainForm.OpenMode.IRDX)
+            {
+                return;
+            }
+
             CAM2_isImageInPoint = false;
 
             float DataPoint = 0.0f;

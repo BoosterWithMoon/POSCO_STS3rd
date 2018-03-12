@@ -28,7 +28,8 @@ namespace Electric_Furnance_Monitoring_System
         MainForm main;
         ImageView imgView;
         //Point[] CAM1_POIArr = new Point[10];
-        //CAM1_DataGridView c1_grid;
+        CAM1_ChartView c1_chart;
+        CAM1_DataGridView c1_grid;
         ResultView result;
         public Point clickedPoint;
         public bool CAM1_isMouseButtonDown = false;
@@ -43,6 +44,9 @@ namespace Electric_Furnance_Monitoring_System
             InitializeComponent();
             this.main = _main;
             imgView = (ImageView)main.ImageView_forPublicRef();
+            c1_chart = (CAM1_ChartView)main.CAM1_ChartView_forPublicRef();
+            c1_grid = (CAM1_DataGridView)main.CAM1_GridView_forPublicRef();
+            result = (ResultView)main.ResultView_forPublicRef();
         }
 
 
@@ -180,6 +184,10 @@ namespace Electric_Furnance_Monitoring_System
                 imgView.CAM1_POICount++;
 
                 imgView.CAM1_POICheckFlag = true;
+                if(main.currentOpenMode == MainForm.OpenMode.IRDX)
+                {
+                    imgView.CAM2_POICheckFlag = true;
+                }
 
                 CAM1_isMouseButtonDown = true;
                 CAM1_PointMoveFlag = true;
@@ -208,6 +216,16 @@ namespace Electric_Furnance_Monitoring_System
                     CAM1_POIClicked = false;
             }
             //MessageBox.Show(CAM1_POIClicked.ToString());
+            if (main.currentOpenMode == MainForm.OpenMode.IRDX)
+            {
+                //c1_chart = (CAM1_ChartView)main.CAM1_ChartView_forPublicRef();
+                //c1_grid = (CAM1_DataGridView)main.CAM1_GridView_forPublicRef();
+                //result = (ResultView)main.ResultView_forPublicRef();
+                //imgView.CalculateCurrentTemp(main.pIRDX_Array[0], imgView.CAM1_POICount, imgView.CAM1_ClickedPosition, imgView.CAM1_TemperatureArr);
+                //c1_chart.UpdateData();
+                //c1_grid.RefreshGrid();
+                //result.CAM1_DetectTempThreshold();
+            }
         }
 
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)

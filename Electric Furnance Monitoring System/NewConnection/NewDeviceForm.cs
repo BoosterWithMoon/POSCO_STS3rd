@@ -157,6 +157,7 @@ namespace Electric_Furnance_Monitoring_System
                 if (DIASDAQ.DDAQ_DEVICE_DO_START(1) != DIASDAQ.DDAQ_ERROR.NO_ERROR)
                     return;
             }
+            main.currentOpenMode = MainForm.OpenMode.Online;
 
             grid = (SystemPropertyGrid)main.customGrid_forPublicRef();
             grid.GetAttributesInfo(main.pIRDX_Array[0]);

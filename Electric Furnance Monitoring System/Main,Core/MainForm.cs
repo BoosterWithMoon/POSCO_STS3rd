@@ -148,6 +148,15 @@ namespace Electric_Furnance_Monitoring_System
                 MOVE_MODE=3
             }
 
+            public enum OpenMode :int
+            {
+                Online=1,
+                Simulation=2,
+                IRDX=3
+            }
+
+            public OpenMode currentOpenMode = OpenMode.IRDX;
+
             public static int MAX_PIXEL_X = 320;
             public static int MAX_PIXEL_Y = 240;
             //POIMode currentMode = POIMode.MOVE_MODE;
@@ -522,9 +531,12 @@ namespace Electric_Furnance_Monitoring_System
 
             //OnlyOne_InitImageView();
             //imageView.DrawImage(pIRDX_Array[0], onlyone_img.pictureBox1);
+            currentOpenMode = OpenMode.IRDX;
+
             InitImageView();
             InitChart();
             InitGridView();
+            InitResultView();
 
             label1.Visible = true;
             label2.Visible = true;
@@ -537,6 +549,10 @@ namespace Electric_Furnance_Monitoring_System
             textBox2.Visible = true;
             textBox3.Visible = true;
             textBox4.Visible = true;
+
+            toolStripButton4.Enabled = true;
+            toolStripButton5.Enabled = true;
+            toolStripButton8.Enabled = true;
 
             imageView.DrawImage(pIRDX_Array[0], c1_img.pictureBox1);
             imageView.DrawImage(pIRDX_Array[0], c2_img.pictureBox1);
@@ -798,6 +814,11 @@ namespace Electric_Furnance_Monitoring_System
                 imageView.DrawImage(pIRDX_Array[0], c2_img.pictureBox1);
                 imageView.DrawImage(pIRDX_Array[0], c1_img.pictureBox1);
 
+                imageView.CalculateCurrentTemp(pIRDX_Array[0], imageView.CAM1_POICount, imageView.CAM1_ClickedPosition, imageView.CAM1_TemperatureArr);
+                c1_chartView.UpdateData();
+                c1_gridView.RefreshGrid();
+                result.CAM1_DetectTempThreshold();
+
                 customGrid.GetAttributesInfo(pIRDX_Array[0]);
             }
             else
@@ -813,6 +834,22 @@ namespace Electric_Furnance_Monitoring_System
 
                 imageView.DrawImage(pIRDX_Array[0], c2_img.pictureBox1);
                 imageView.DrawImage(pIRDX_Array[0], c1_img.pictureBox1);
+
+                imageView.CalculateCurrentTemp(pIRDX_Array[0], imageView.CAM1_POICount, imageView.CAM1_ClickedPosition, imageView.CAM1_TemperatureArr);
+                c1_chartView.UpdateData();
+                c1_gridView.RefreshGrid();
+                result.CAM1_DetectTempThreshold();
+
+                for (int i = 0; i < imageView.CAM1_POICount; i++)
+                {
+                    //imageView.CAM1_ClickedPosition[i] = imageView.CAM2_ClickedPosition[i];
+                    imageView.CAM2_ClickedPosition[i] = imageView.CAM1_ClickedPosition[i];
+                }
+                imageView.CAM2_POICount = imageView.CAM1_POICount;
+                imageView.CalculateCurrentTemp(pIRDX_Array[0], imageView.CAM2_POICount, imageView.CAM2_ClickedPosition, imageView.CAM2_TemperatureArr);
+                c2_chartView.UpdateData();
+                c2_gridView.CAM2_RefreshGrid();
+                result.CAM2_DetectTempThreshold();
 
                 customGrid.GetAttributesInfo(pIRDX_Array[0]);
             }
