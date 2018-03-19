@@ -81,7 +81,7 @@ namespace Electric_Furnance_Monitoring_System
                 string temp = (i + 1).ToString();
                 dataGridView1.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dataGridView1.Columns[i].Name = "#" + temp;
-                dataGridView1[(i), 0].Value = imgView.CAM1_TemperatureArr[i] + "℃";
+                dataGridView1[(i), 0].Value = imgView.CAM1_TemperatureArr[i].ToString("N1") + "℃";
             }
         }
 

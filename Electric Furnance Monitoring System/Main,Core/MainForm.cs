@@ -65,16 +65,16 @@ namespace Electric_Furnance_Monitoring_System
             OnlyOne_ChartView onlyone_chartView;
 
             ResultView result;
+        //SetThreshold thresholdForm;
+        //DaServerMgt daServerMgt = new DaServerMgt();
+        //ServerIdentifier[] availableOPCServers;
 
-            //DaServerMgt daServerMgt = new DaServerMgt();
-            //ServerIdentifier[] availableOPCServers;
-
-            //int activeServerSubscriptionHandle;
-            //int activeClientSubscriptionHandle;
+        //int activeServerSubscriptionHandle;
+        //int activeClientSubscriptionHandle;
 
         #endregion
 
-            #region Variables
+        #region Variables
 
         public IntPtr pIRDX;            // 1번 카메라 IRDX HANDLE
             public IntPtr pIRDX_2;         // 2번 카메라 IRDX HANDLE
@@ -139,7 +139,7 @@ namespace Electric_Furnance_Monitoring_System
             string CAM2_NewIRDXFileName = "";
             string CAM2_newRawDataFileName = "";
             string CAM2_newResultDataFileName = "";
-            bool isLoggingRunning = false;
+            public bool isLoggingRunning = false;
 
             enum POIMode : int
             {
@@ -159,8 +159,8 @@ namespace Electric_Furnance_Monitoring_System
 
             public static int MAX_PIXEL_X = 320;
             public static int MAX_PIXEL_Y = 240;
-            //POIMode currentMode = POIMode.MOVE_MODE;
-
+        //POIMode currentMode = POIMode.MOVE_MODE;
+        public bool rectROIDraw = false;
             #endregion
 
 
@@ -217,6 +217,7 @@ namespace Electric_Furnance_Monitoring_System
                 onlyone_chartView = new OnlyOne_ChartView(this);
 
                 result = new ResultView(this);
+            //thresholdForm = new SetThreshold(this);
 
                 #endregion
 
@@ -251,7 +252,6 @@ namespace Electric_Furnance_Monitoring_System
         }
 
         #region Publicize_AllocatedClass
-
 
         public object ImageView_forPublicRef() { return imageView; }
 
@@ -320,6 +320,11 @@ namespace Electric_Furnance_Monitoring_System
             toolStripButton9.Visible = false;
             toolStripButton10.Visible = false;
 
+            // MotorFocus Menu Hiding
+            KeepFarButton.Visible = false;
+            KeepNearButton.Visible = false;
+            NearButton.Visible = false;
+            FarButton.Visible = false;
             //DetectOPCServer();
         }
 
@@ -1132,6 +1137,31 @@ namespace Electric_Furnance_Monitoring_System
             MessageBox.Show("CAMERA #1 = " + c1_av.ToString() + "\nCAMERA #2 = " + c2_av.ToString());
         }
 
+        private void KeepNearButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void NearButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KeepFarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RectROIDraw_Click(object sender, EventArgs e)
+        {
+            rectROIDraw = true;
+        }
+
         #endregion
 
         #region Thread
@@ -1325,13 +1355,16 @@ namespace Electric_Furnance_Monitoring_System
             customGrid.RawData_Location = value;
             value = ConfigurationManager.AppSettings["ResultData_Location"];
             customGrid.ResultData_Location = value;
-            value = ConfigurationManager.AppSettings["Threshold"];
-            customGrid.Threshold = Convert.ToSingle(value);
+            //value = ConfigurationManager.AppSettings["Threshold"];
+            //customGrid.Threshold = Convert.ToSingle(value);
+
+            //value = ConfigurationManager.AppSettings["CAM1_Threshold1"];
+            //result.CAM1_ThresholdTemp[0] = Convert.ToSingle(value);
         }
 
         private void SaveConfiguration()
         {
-            //Properties.Settings.Default.Threshold = customGrid.Threshold;
+            // Saving PropertyGrid
             config.AppSettings.Settings["Emissivity"].Value = customGrid.Emissivity.ToString();
             config.AppSettings.Settings["Transmission"].Value = customGrid.Transmission.ToString();
             config.AppSettings.Settings["AmbientTemp"].Value = customGrid.AmbientTemperature.ToString();
@@ -1339,7 +1372,17 @@ namespace Electric_Furnance_Monitoring_System
             config.AppSettings.Settings["Minimum"].Value = customGrid.Minimun.ToString();
             config.AppSettings.Settings["RawData_Location"].Value = customGrid.RawData_Location;
             config.AppSettings.Settings["ResultData_Location"].Value = customGrid.ResultData_Location;
-            config.AppSettings.Settings["Threshold"].Value = customGrid.Threshold.ToString();
+            //config.AppSettings.Settings["Threshold"].Value = customGrid.Threshold.ToString();
+
+            // Saving POI Temperature
+            string appSettingValue = "";
+            for (int i=0; i<10; i++)
+            {
+                appSettingValue = "CAM1_Threshold" + (i + 1).ToString();
+                config.AppSettings.Settings[appSettingValue].Value = result.CAM1_ThresholdTemp[i].ToString();
+                appSettingValue = "CAM2_Threshold" + (i + 1).ToString();
+                config.AppSettings.Settings[appSettingValue].Value = result.CAM2_ThresholdTemp[i].ToString();
+            }
 
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
@@ -1619,6 +1662,8 @@ namespace Electric_Furnance_Monitoring_System
             MaxTemp = FloatMaxTemp.ToString();
             textBox3.Text = MaxTemp;
         }
+
+        
 
         public void CAM2_CompareMaxTemperature(float[] TemperatureArray)
         {

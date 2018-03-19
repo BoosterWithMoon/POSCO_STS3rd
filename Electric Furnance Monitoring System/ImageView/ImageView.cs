@@ -81,6 +81,8 @@ namespace Electric_Furnance_Monitoring_System
         public bool isCAM1Focused = false;
         public bool isCAM2Focused = false;
 
+        public bool isCAM1RectDone = false;
+        public bool isCAM2RectDone = false;
         #endregion
 
 
@@ -212,7 +214,7 @@ namespace Electric_Furnance_Monitoring_System
 
                 Point MousePosTemp = c1_imgView.pictureBox1.PointToClient(new Point(Control.MousePosition.X, Control.MousePosition.Y));
                 temp.DrawString(pointTemperatureData+"℃", new Font("맑은 고딕", 10), Brushes.Black, new Point((int)((MousePosTemp.X/m_bmp_zoom) - m_bmp_ofs_x + 5), (int)((MousePosTemp.Y/m_bmp_zoom) - m_bmp_ofs_y - 20)));
-
+                //DrawRectROI(hIRDX, temp, pb);
                 g.DrawImage((Image)bmp, m_bmp_ofs_x, m_bmp_ofs_y, m_bmp_size_x, m_bmp_size_y);
 
                 //OnMouseMove_ShowTemp(hIRDX, Control.MousePosition, pb);
@@ -353,6 +355,34 @@ namespace Electric_Furnance_Monitoring_System
             for (int i = 0; i < poiCount; i++)
             {
                 g.DrawString("POI #" + (i + 1) + " " + CAM2_TemperatureArr[i].ToString("N1")+"℃", f, Brushes.Black, position[i].X /** m_bmp_zoom*/, position[i].Y /** m_bmp_zoom*/);
+            }
+        }
+
+        private void DrawRectROI(IntPtr irdxHandle, Graphics g, PictureBox pb)
+        {
+            if (bmp == null) return;
+            Pen rectDrawPen = new Pen(Brushes.White);
+            g = Graphics.FromImage(bmp);
+            if (main.rectROIDraw && c1_imgView.clickedPoint!=Point.Empty && c1_imgView.clickedAfterUp!=Point.Empty)
+            {
+                int temp_topx = Convert.ToInt32(c1_imgView.clickedPoint.X * m_bmp_zoom);
+                int temp_topy = Convert.ToInt32(c1_imgView.clickedPoint.Y * m_bmp_zoom);
+                int temp_bottomx = Convert.ToInt32(c1_imgView.clickedAfterUp.X * m_bmp_zoom);
+                int temp_bottomy = Convert.ToInt32(c1_imgView.clickedAfterUp.Y * m_bmp_zoom);
+                            
+                //g.DrawRectangle(rectDrawPen, new Rectangle(c1_imgView.clickedPoint, c1_imgView.clickedAfterUp));
+                g.DrawRectangle(rectDrawPen, new Rectangle(temp_topx, temp_topy, temp_bottomx, temp_bottomy));
+                main.rectROIDraw = false;
+            }
+            else if (c1_imgView.clickedAfterUp != Point.Empty)
+            {
+                int temp_topx = Convert.ToInt32(c1_imgView.clickedPoint.X * m_bmp_zoom);
+                int temp_topy = Convert.ToInt32(c1_imgView.clickedPoint.Y * m_bmp_zoom);
+                int temp_bottomx = Convert.ToInt32(c1_imgView.clickedAfterUp.X * m_bmp_zoom);
+                int temp_bottomy = Convert.ToInt32(c1_imgView.clickedAfterUp.Y * m_bmp_zoom);
+
+                //g.DrawRectangle(rectDrawPen, new Rectangle(c1_imgView.clickedPoint.X, c1_imgView.clickedPoint.Y, c1_imgView.clickedAfterUp.X, c1_imgView.clickedAfterUp.Y));
+                g.DrawRectangle(rectDrawPen, new Rectangle(temp_topx, temp_topy, temp_bottomx, temp_bottomy));
             }
         }
 

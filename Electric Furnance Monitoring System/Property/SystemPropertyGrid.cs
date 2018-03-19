@@ -784,12 +784,12 @@ namespace Electric_Furnance_Monitoring_System
 
         #region DefineAttribute_AlarmThreshold
 
-        [CategoryAttribute("Threshold")]
-        public float Threshold
-        {
-            get { return Threshold_Temperature; }
-            set { Threshold_Temperature = value; }
-        }
+        //[CategoryAttribute("Threshold")]
+        //public float Threshold
+        //{
+        //    get { return Threshold_Temperature; }
+        //    set { Threshold_Temperature = value; }
+        //}
 
         #endregion
 

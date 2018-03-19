@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,14 +17,17 @@ namespace Electric_Furnance_Monitoring_System
         MainForm main;
         ImageView imgView;
         SystemPropertyGrid property;
+        SetThreshold thresholdForm;
         //public bool[] CAM1_POIConnected = new bool[10];
         //public bool[] CAM2_POIConnected;
         public Label[] CAM1_LabelArray = new Label[10];
         public Color[] CAM1_POIConnected = new Color[10];
+        public float[] CAM1_ThresholdTemp = new float[10];
         bool[] CAM1_verify = new bool[10];
 
         public Label[] CAM2_LabelArray = new Label[10];
         public Color[] CAM2_POIConnected = new Color[10];
+        public float[] CAM2_ThresholdTemp = new float[10];
         bool[] CAM2_verify = new bool[10];
 
         public static Color NotConnected = Color.Yellow;
@@ -40,7 +44,41 @@ namespace Electric_Furnance_Monitoring_System
             CAM2_AlarmInitialize();
             imgView = (ImageView)main.ImageView_forPublicRef();
             property = (SystemPropertyGrid)main.customGrid_forPublicRef();
+            //thresholdForm = (SetThreshold)main.SetThreshold_forPublicRef();
+            thresholdForm = new SetThreshold(_main);
+
+            // Initialize Threshold Temperature 
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    CAM1_ThresholdTemp[i] = 0.0f;
+            //    CAM2_ThresholdTemp[i] = 0.0f;
+            //}
+            LoadConfiguration_Temperature();
         }
+
+        System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        private void LoadConfiguration_Temperature()
+        {
+            string value = "";
+            string appSetValue = "";
+
+            // CAM1 ThresholdTemp Load
+            for (int i = 0; i < 10; i++)
+            {
+                appSetValue = "CAM1_Threshold" + (i + 1).ToString();
+                value = ConfigurationManager.AppSettings[appSetValue];
+                CAM1_ThresholdTemp[i] = Convert.ToSingle(value);
+            }
+            // CAM2 ThresholdTemp Load
+            for (int i = 0; i < 10; i++)
+            {
+                appSetValue = "CAM2_Threshold" + (i + 1).ToString();
+                value = ConfigurationManager.AppSettings[appSetValue];
+                CAM2_ThresholdTemp[i] = Convert.ToSingle(value);
+            }
+        }
+
+        public object SetThreshold_forPublicRef() { return thresholdForm; }
 
         public void CAM1_AlarmInitialize()
         {
@@ -65,8 +103,6 @@ namespace Electric_Furnance_Monitoring_System
             }
 
             #endregion
-
-
         }
 
         public void CAM2_AlarmInitialize()
@@ -113,12 +149,14 @@ namespace Electric_Furnance_Monitoring_System
                 #region POIAlarm Control
                 for (int i = 0; i < imgView.CAM1_POICount; i++)
                 {
-                    if (imgView.CAM1_TemperatureArr[i] >= property.Threshold)
+                    //if (imgView.CAM1_TemperatureArr[i] >= property.Threshold)
+                    if(imgView.CAM1_TemperatureArr[i] >= CAM1_ThresholdTemp[i])
                     {
                         CAM1_verify[i] = true;
                         CAM1_LabelArray[i].ForeColor = Connected_Warning;
                     }
-                    else if (imgView.CAM1_TemperatureArr[i] < property.Threshold ||
+                    //else if (imgView.CAM1_TemperatureArr[i] < property.Threshold ||
+                    else if(imgView.CAM1_TemperatureArr[i] < CAM1_ThresholdTemp[i] ||
                         imgView.CAM1_TemperatureArr[i] == 0)
                     {
                         CAM1_verify[i] = false;
@@ -167,12 +205,14 @@ namespace Electric_Furnance_Monitoring_System
 
                 for (int i = 0; i < imgView.CAM2_POICount; i++)
                 {
-                    if (imgView.CAM2_TemperatureArr[i] >= property.Threshold)
+                    //if (imgView.CAM2_TemperatureArr[i] >= property.Threshold)
+                    if(imgView.CAM2_TemperatureArr[i] >= CAM2_ThresholdTemp[i])
                     {
                         CAM2_verify[i] = true;
                         CAM2_LabelArray[i].ForeColor = Connected_Warning;
                     }
-                    else if (imgView.CAM2_TemperatureArr[i] < property.Threshold ||
+                    //else if (imgView.CAM2_TemperatureArr[i] < property.Threshold ||
+                    else if(imgView.CAM2_TemperatureArr[i] < CAM2_ThresholdTemp[i] ||
                         imgView.CAM2_TemperatureArr[i] == 0)
                     {
                         CAM2_verify[i] = false;
@@ -201,5 +241,11 @@ namespace Electric_Furnance_Monitoring_System
                 CAM2_AlarmInitialize();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*DialogResult dr = */thresholdForm.ShowDialog();
+        }
+
     }
 }

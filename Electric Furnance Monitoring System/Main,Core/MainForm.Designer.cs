@@ -93,6 +93,12 @@
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripSeparator();
+            this.KeepNearButton = new System.Windows.Forms.ToolStripButton();
+            this.NearButton = new System.Windows.Forms.ToolStripButton();
+            this.FarButton = new System.Windows.Forms.ToolStripButton();
+            this.KeepFarButton = new System.Windows.Forms.ToolStripButton();
+            this.RectROIDraw = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.split_ViewToInfo)).BeginInit();
             this.split_ViewToInfo.Panel1.SuspendLayout();
@@ -208,7 +214,7 @@
             // 
             this.startToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("startToolStripMenuItem.Image")));
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
@@ -216,7 +222,7 @@
             // 
             this.stopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.Image")));
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
@@ -283,7 +289,7 @@
             // 
             this.drawROIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("drawROIToolStripMenuItem.Image")));
             this.drawROIToolStripMenuItem.Name = "drawROIToolStripMenuItem";
-            this.drawROIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.drawROIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.drawROIToolStripMenuItem.Text = "Draw ROI";
             this.drawROIToolStripMenuItem.Click += new System.EventHandler(this.drawROIToolStripMenuItem_Click);
             // 
@@ -291,7 +297,7 @@
             // 
             this.moveModeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("moveModeToolStripMenuItem.Image")));
             this.moveModeToolStripMenuItem.Name = "moveModeToolStripMenuItem";
-            this.moveModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.moveModeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.moveModeToolStripMenuItem.Text = "Move Mode";
             this.moveModeToolStripMenuItem.Click += new System.EventHandler(this.moveModeToolStripMenuItem_Click);
             // 
@@ -299,7 +305,7 @@
             // 
             this.deleteROIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteROIToolStripMenuItem.Image")));
             this.deleteROIToolStripMenuItem.Name = "deleteROIToolStripMenuItem";
-            this.deleteROIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteROIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.deleteROIToolStripMenuItem.Text = "Delete ROI";
             this.deleteROIToolStripMenuItem.Click += new System.EventHandler(this.deleteROIToolStripMenuItem_Click);
             // 
@@ -315,7 +321,7 @@
             // 
             this.aboutToolStripMenuItem.Image = global::Electric_Furnance_Monitoring_System.Properties.Resources.help;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -593,7 +599,13 @@
             this.toolStripButton7,
             this.toolStripButton9,
             this.toolStripSeparator12,
-            this.toolStripButton10});
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.KeepNearButton,
+            this.NearButton,
+            this.FarButton,
+            this.KeepFarButton,
+            this.RectROIDraw});
             this.toolStrip_Mainmenu.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_Mainmenu.Name = "toolStrip_Mainmenu";
             this.toolStrip_Mainmenu.Size = new System.Drawing.Size(1350, 25);
@@ -742,6 +754,57 @@
             this.toolStripButton10.Text = "Control Able/Disable";
             this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
             // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Size = new System.Drawing.Size(6, 25);
+            this.toolStripButton11.Visible = false;
+            // 
+            // KeepNearButton
+            // 
+            this.KeepNearButton.Image = ((System.Drawing.Image)(resources.GetObject("KeepNearButton.Image")));
+            this.KeepNearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.KeepNearButton.Name = "KeepNearButton";
+            this.KeepNearButton.Size = new System.Drawing.Size(109, 22);
+            this.KeepNearButton.Text = "KeepNearFocus";
+            this.KeepNearButton.Click += new System.EventHandler(this.KeepNearButton_Click);
+            // 
+            // NearButton
+            // 
+            this.NearButton.Image = ((System.Drawing.Image)(resources.GetObject("NearButton.Image")));
+            this.NearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NearButton.Name = "NearButton";
+            this.NearButton.Size = new System.Drawing.Size(83, 22);
+            this.NearButton.Text = "NearFocus";
+            this.NearButton.Click += new System.EventHandler(this.NearButton_Click);
+            // 
+            // FarButton
+            // 
+            this.FarButton.Image = ((System.Drawing.Image)(resources.GetObject("FarButton.Image")));
+            this.FarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FarButton.Name = "FarButton";
+            this.FarButton.Size = new System.Drawing.Size(74, 22);
+            this.FarButton.Text = "FarFocus";
+            this.FarButton.Click += new System.EventHandler(this.FarButton_Click);
+            // 
+            // KeepFarButton
+            // 
+            this.KeepFarButton.Image = ((System.Drawing.Image)(resources.GetObject("KeepFarButton.Image")));
+            this.KeepFarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.KeepFarButton.Name = "KeepFarButton";
+            this.KeepFarButton.Size = new System.Drawing.Size(100, 22);
+            this.KeepFarButton.Text = "KeepFarFocus";
+            this.KeepFarButton.Click += new System.EventHandler(this.KeepFarButton_Click);
+            // 
+            // RectROIDraw
+            // 
+            this.RectROIDraw.Image = ((System.Drawing.Image)(resources.GetObject("RectROIDraw.Image")));
+            this.RectROIDraw.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RectROIDraw.Name = "RectROIDraw";
+            this.RectROIDraw.Size = new System.Drawing.Size(71, 22);
+            this.RectROIDraw.Text = "RectDOI";
+            this.RectROIDraw.Click += new System.EventHandler(this.RectROIDraw_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -861,6 +924,12 @@
         public System.Windows.Forms.ToolStripButton toolStripButton9;
         public System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         public System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripSeparator toolStripButton11;
+        private System.Windows.Forms.ToolStripButton KeepNearButton;
+        private System.Windows.Forms.ToolStripButton NearButton;
+        private System.Windows.Forms.ToolStripButton FarButton;
+        private System.Windows.Forms.ToolStripButton KeepFarButton;
+        private System.Windows.Forms.ToolStripButton RectROIDraw;
     }
 }
 

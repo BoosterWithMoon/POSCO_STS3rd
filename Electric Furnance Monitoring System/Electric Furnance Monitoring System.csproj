@@ -162,6 +162,12 @@
     <Compile Include="Result\ResultView.Designer.cs">
       <DependentUpon>ResultView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Result\SetThreshold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result\SetThreshold.Designer.cs">
+      <DependentUpon>SetThreshold.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="TopView\CAM1_Info.cs">
       <SubType>Form</SubType>
@@ -214,6 +220,9 @@
     </Compile>
     <EmbeddedResource Include="Result\ResultView.resx">
       <DependentUpon>ResultView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Result\SetThreshold.resx">
+      <DependentUpon>SetThreshold.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TopView\CAM1_Info.resx">
       <DependentUpon>CAM1_Info.cs</DependentUpon>

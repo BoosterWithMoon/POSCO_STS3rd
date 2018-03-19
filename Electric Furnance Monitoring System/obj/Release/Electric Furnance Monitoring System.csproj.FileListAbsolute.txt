@@ -34,3 +34,5 @@ E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.csproj.GenerateResource.Cache
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.exe
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.pdb
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric_Furnance_Monitoring_System.SetThreshold.resources
+E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Release\Electric Furnance Monitoring System.csprojResolveAssemblyReference.cache

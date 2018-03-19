@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.AlartToConnection = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.CamSplitter = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.c1_poi10 = new System.Windows.Forms.Label();
@@ -54,11 +55,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.c1_MainAlarm = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.c2_opcConnect = new System.Windows.Forms.Label();
-            this.c1_opcConnect = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.c2_MainAlarm = new System.Windows.Forms.Label();
             this.c2_poi10 = new System.Windows.Forms.Label();
             this.c2_poi9 = new System.Windows.Forms.Label();
             this.c2_poi8 = new System.Windows.Forms.Label();
@@ -79,6 +75,11 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.c2_MainAlarm = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.c2_opcConnect = new System.Windows.Forms.Label();
+            this.c1_opcConnect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AlartToConnection)).BeginInit();
             this.AlartToConnection.Panel1.SuspendLayout();
             this.AlartToConnection.Panel2.SuspendLayout();
@@ -90,8 +91,8 @@
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // AlartToConnection
@@ -103,18 +104,28 @@
             // 
             // AlartToConnection.Panel1
             // 
+            this.AlartToConnection.Panel1.Controls.Add(this.button1);
             this.AlartToConnection.Panel1.Controls.Add(this.CamSplitter);
             // 
             // AlartToConnection.Panel2
             // 
             this.AlartToConnection.Panel2.Controls.Add(this.groupBox3);
-            this.AlartToConnection.Size = new System.Drawing.Size(255, 603);
-            this.AlartToConnection.SplitterDistance = 510;
+            this.AlartToConnection.Size = new System.Drawing.Size(255, 722);
+            this.AlartToConnection.SplitterDistance = 610;
             this.AlartToConnection.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(86, 573);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Threshold";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CamSplitter
             // 
-            this.CamSplitter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CamSplitter.Location = new System.Drawing.Point(0, 0);
             this.CamSplitter.Name = "CamSplitter";
             // 
@@ -125,7 +136,7 @@
             // CamSplitter.Panel2
             // 
             this.CamSplitter.Panel2.Controls.Add(this.groupBox2);
-            this.CamSplitter.Size = new System.Drawing.Size(255, 510);
+            this.CamSplitter.Size = new System.Drawing.Size(255, 558);
             this.CamSplitter.SplitterDistance = 123;
             this.CamSplitter.TabIndex = 0;
             // 
@@ -155,7 +166,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(123, 510);
+            this.groupBox1.Size = new System.Drawing.Size(123, 558);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CAMERA #1";
@@ -397,63 +408,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(128, 510);
+            this.groupBox2.Size = new System.Drawing.Size(128, 558);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CAMERA #2";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.c2_opcConnect);
-            this.groupBox3.Controls.Add(this.c1_opcConnect);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(255, 89);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "OPC Connection";
-            // 
-            // c2_opcConnect
-            // 
-            this.c2_opcConnect.AutoSize = true;
-            this.c2_opcConnect.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.c2_opcConnect.Location = new System.Drawing.Point(158, 17);
-            this.c2_opcConnect.Name = "c2_opcConnect";
-            this.c2_opcConnect.Size = new System.Drawing.Size(85, 64);
-            this.c2_opcConnect.TabIndex = 2;
-            this.c2_opcConnect.Text = "■";
-            // 
-            // c1_opcConnect
-            // 
-            this.c1_opcConnect.AutoSize = true;
-            this.c1_opcConnect.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.c1_opcConnect.Location = new System.Drawing.Point(18, 17);
-            this.c1_opcConnect.Name = "c1_opcConnect";
-            this.c1_opcConnect.Size = new System.Drawing.Size(85, 64);
-            this.c1_opcConnect.TabIndex = 1;
-            this.c1_opcConnect.Text = "■";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.c2_MainAlarm);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(3, 17);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(122, 87);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Warning!";
-            // 
-            // c2_MainAlarm
-            // 
-            this.c2_MainAlarm.AutoSize = true;
-            this.c2_MainAlarm.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.c2_MainAlarm.Location = new System.Drawing.Point(15, 14);
-            this.c2_MainAlarm.Name = "c2_MainAlarm";
-            this.c2_MainAlarm.Size = new System.Drawing.Size(85, 64);
-            this.c2_MainAlarm.TabIndex = 0;
-            this.c2_MainAlarm.Text = "■";
             // 
             // c2_poi10
             // 
@@ -645,11 +603,64 @@
             this.label30.TabIndex = 21;
             this.label30.Text = "#1";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.c2_MainAlarm);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(3, 17);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(122, 87);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Warning!";
+            // 
+            // c2_MainAlarm
+            // 
+            this.c2_MainAlarm.AutoSize = true;
+            this.c2_MainAlarm.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.c2_MainAlarm.Location = new System.Drawing.Point(15, 14);
+            this.c2_MainAlarm.Name = "c2_MainAlarm";
+            this.c2_MainAlarm.Size = new System.Drawing.Size(85, 64);
+            this.c2_MainAlarm.TabIndex = 0;
+            this.c2_MainAlarm.Text = "■";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.c2_opcConnect);
+            this.groupBox3.Controls.Add(this.c1_opcConnect);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(255, 108);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "OPC Connection";
+            // 
+            // c2_opcConnect
+            // 
+            this.c2_opcConnect.AutoSize = true;
+            this.c2_opcConnect.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.c2_opcConnect.Location = new System.Drawing.Point(158, 17);
+            this.c2_opcConnect.Name = "c2_opcConnect";
+            this.c2_opcConnect.Size = new System.Drawing.Size(85, 64);
+            this.c2_opcConnect.TabIndex = 2;
+            this.c2_opcConnect.Text = "■";
+            // 
+            // c1_opcConnect
+            // 
+            this.c1_opcConnect.AutoSize = true;
+            this.c1_opcConnect.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.c1_opcConnect.Location = new System.Drawing.Point(18, 17);
+            this.c1_opcConnect.Name = "c1_opcConnect";
+            this.c1_opcConnect.Size = new System.Drawing.Size(85, 64);
+            this.c1_opcConnect.TabIndex = 1;
+            this.c1_opcConnect.Text = "■";
+            // 
             // ResultView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 603);
+            this.ClientSize = new System.Drawing.Size(255, 722);
             this.ControlBox = false;
             this.Controls.Add(this.AlartToConnection);
             this.Name = "ResultView";
@@ -670,10 +681,10 @@
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -731,5 +742,6 @@
         public System.Windows.Forms.Label label30;
         public System.Windows.Forms.GroupBox groupBox5;
         public System.Windows.Forms.Label c2_MainAlarm;
+        private System.Windows.Forms.Button button1;
     }
 }

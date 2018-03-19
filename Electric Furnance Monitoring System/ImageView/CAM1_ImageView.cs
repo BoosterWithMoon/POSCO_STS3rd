@@ -32,6 +32,7 @@ namespace Electric_Furnance_Monitoring_System
         CAM1_DataGridView c1_grid;
         ResultView result;
         public Point clickedPoint;
+        public Point clickedAfterUp;
         public bool CAM1_isMouseButtonDown = false;
         public bool CAM1_PointMoveFlag = false;
         public bool CAM1_clicked = false;
@@ -158,6 +159,9 @@ namespace Electric_Furnance_Monitoring_System
 
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
+            // 현재 Logging이 동작 중이라면 POI 그리기/이동의 작업을 하지 않음
+            if (main.isLoggingRunning) return;
+
             // 좌클릭 이외에 다른 버튼을 클릭 했을 때에는 아무것도 안함
             if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Middle) { return; }
 
@@ -230,6 +234,11 @@ namespace Electric_Furnance_Monitoring_System
 
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
         {
+            if (main.rectROIDraw && clickedAfterUp!=Point.Empty)
+            {
+                clickedAfterUp = pictureBox1.PointToClient(new Point(MousePosition.X, MousePosition.Y));
+
+            }
             imgView.isCAM1Focused = true;
             imgView.isCAM2Focused = false;
 

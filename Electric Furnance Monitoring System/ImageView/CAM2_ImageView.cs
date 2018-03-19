@@ -120,6 +120,9 @@ namespace Electric_Furnance_Monitoring_System
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            // 현재 Logging이 동작 중이라면 POI 그리기/이동의 작업을 하지 않음
+            if (main.isLoggingRunning) return;
+
             // 좌클릭 이외에 다른 버튼을 클릭 했을 때에는 아무것도 안함
             if (e.Button == MouseButtons.Right || e.Button == MouseButtons.Middle) { return; }
 
