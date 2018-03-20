@@ -234,7 +234,7 @@ namespace Electric_Furnance_Monitoring_System
 
         private void pictureBox1_MouseUp_1(object sender, MouseEventArgs e)
         {
-            if (main.rectROIDraw && clickedAfterUp!=Point.Empty)
+            if (main.rectROIDraw && clickedAfterUp==Point.Empty)
             {
                 clickedAfterUp = pictureBox1.PointToClient(new Point(MousePosition.X, MousePosition.Y));
 
@@ -254,6 +254,8 @@ namespace Electric_Furnance_Monitoring_System
                 clickedPoint.X = 0;
                 clickedPoint.Y = 0;
             }
+            //MessageBox.Show("ClickedPoint = " + clickedPoint.X.ToString() + "," + clickedPoint.Y.ToString() +
+            //    "\nClickedAfterUp = " + clickedAfterUp.X.ToString() + "," + clickedAfterUp.Y.ToString());
         }
     }
 }

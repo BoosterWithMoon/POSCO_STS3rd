@@ -60,19 +60,19 @@
   <ItemGroup>
     <Reference Include="Kepware.ClientAce.BrowseControls, Version=4.0.2.7, Culture=neutral, PublicKeyToken=8c3093bd8fa54956, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.BrowseControls.dll</HintPath>
+      <HintPath>bin\Debug\Kepware.ClientAce.BrowseControls.dll</HintPath>
     </Reference>
     <Reference Include="Kepware.ClientAce.DA_Junction, Version=4.0.2.7, Culture=neutral, PublicKeyToken=8c3093bd8fa54956, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.DA_Junction.dll</HintPath>
+      <HintPath>bin\Debug\Kepware.ClientAce.DA_Junction.dll</HintPath>
     </Reference>
     <Reference Include="Kepware.ClientAce.KEPServerExControls, Version=4.0.2.7, Culture=neutral, PublicKeyToken=8c3093bd8fa54956, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.KEPServerExControls.dll</HintPath>
+      <HintPath>bin\Debug\Kepware.ClientAce.KEPServerExControls.dll</HintPath>
     </Reference>
     <Reference Include="Kepware.ClientAce.OpcClient, Version=4.0.2.7, Culture=neutral, PublicKeyToken=8c3093bd8fa54956, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.OpcClient.dll</HintPath>
+      <HintPath>bin\Debug\Kepware.ClientAce.OpcClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

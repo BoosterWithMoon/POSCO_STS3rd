@@ -22,12 +22,10 @@ namespace Electric_Furnance_Monitoring_System
 {
     public partial class MainForm : Form
     {
-        //DaServerMgt DAServer = new DaServerMgt();
-
         // HERE IS THE AREA FOR GLOBAL VARIABLES
         #region GlobalVariableDefinition
 
-            #region ClassReference
+        #region ClassReference
 
         // New: Online에 사용할 Dialog + Class
         OpenFileDialog openDlg;
@@ -71,7 +69,7 @@ namespace Electric_Furnance_Monitoring_System
 
         //int activeServerSubscriptionHandle;
         //int activeClientSubscriptionHandle;
-
+        //DaServerMgt daServerMgt;
         #endregion
 
         #region Variables
@@ -218,10 +216,10 @@ namespace Electric_Furnance_Monitoring_System
 
                 result = new ResultView(this);
             //thresholdForm = new SetThreshold(this);
+            //daServerMgt = new DaServerMgt();
+            #endregion
 
-                #endregion
-
-                #region VariableAllocation
+            #region VariableAllocation
 
                 pIRDX = new IntPtr();
                 pIRDX_2 = new IntPtr();
@@ -316,15 +314,16 @@ namespace Electric_Furnance_Monitoring_System
             toolStripButton6.Enabled = false;   // Log Start
             toolStripButton7.Enabled = false;   // Log Stop
 
+            ViewAdjust();
             // 테스트용 메뉴 버튼 hide
-            toolStripButton9.Visible = false;
-            toolStripButton10.Visible = false;
+            //toolStripButton9.Visible = false;
+            //toolStripButton10.Visible = false;
 
-            // MotorFocus Menu Hiding
-            KeepFarButton.Visible = false;
-            KeepNearButton.Visible = false;
-            NearButton.Visible = false;
-            FarButton.Visible = false;
+            //// MotorFocus Menu Hiding
+            //KeepFarButton.Visible = false;
+            //KeepNearButton.Visible = false;
+            //NearButton.Visible = false;
+            //FarButton.Visible = false;
             //DetectOPCServer();
         }
 
@@ -543,17 +542,18 @@ namespace Electric_Furnance_Monitoring_System
             InitGridView();
             InitResultView();
 
+            label1.Text = "IRDX Simulation Mode";
             label1.Visible = true;
-            label2.Visible = true;
-            label3.Visible = true;
-            label4.Visible = true;
-            label5.Visible = true;
-            label6.Visible = true;
+            //label2.Visible = true;
+            //label3.Visible = true;
+            //label4.Visible = true;
+            //label5.Visible = true;
+            //label6.Visible = true;
 
-            textBox1.Visible = true;
-            textBox2.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
+            //textBox1.Visible = true;
+            //textBox2.Visible = true;
+            //textBox3.Visible = true;
+            //textBox4.Visible = true;
 
             toolStripButton4.Enabled = true;
             toolStripButton5.Enabled = true;
@@ -1162,6 +1162,20 @@ namespace Electric_Furnance_Monitoring_System
             rectROIDraw = true;
         }
 
+        private void RectROIDelete_Click(object sender, EventArgs e)
+        {
+            rectROIDraw = false;
+            //c1_img.clickedAfterUp.X = 0;
+            c1_img.clickedAfterUp = Point.Empty;
+        }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            imageView.CalculateRectROI(pIRDX_Array[0]);
+            textBox3.Text = imageView.MaxTempInRect.ToString("N3") + "℃";
+            imageView.MaxTempInRect = 0.0f;
+        }
+
         #endregion
 
         #region Thread
@@ -1269,7 +1283,7 @@ namespace Electric_Furnance_Monitoring_System
                     CompareMaxTemperature(imageView.CAM1_TemperatureArr);
 
                     acq_index++;
-
+                    
                     if (DIASDAQ.DDAQ_DEVICE_DO_ENABLE_NEXTMSG(DetectedDevices) != DIASDAQ.DDAQ_ERROR.NO_ERROR)             /// 카메라가 새로운 데이터를 받을 수 있도록 Do Enable
                         return;
                 }
@@ -1330,12 +1344,6 @@ namespace Electric_Furnance_Monitoring_System
 
         private void LoadConfiguration()
         {
-            //customGrid.RawData_Location = Properties.Settings.Default.RawDataPath;
-            //customGrid.ResultData_Location = Properties.Settings.Default.ResultDataPath;
-            //customGrid.Threshold = Properties.Settings.Default.Threshold;
-            //cMinTemp = Properties.Settings.Default.Minimum;
-            //cMaxTemp = Properties.Settings.Default.Maximum;
-
             string value = "";
             value = ConfigurationManager.AppSettings["Emissivity"];
             customGrid.Emissivity = Convert.ToSingle(value);
@@ -1345,21 +1353,14 @@ namespace Electric_Furnance_Monitoring_System
             customGrid.AmbientTemperature = Convert.ToSingle(value);
 
             value = ConfigurationManager.AppSettings["Maximum"];
-            //customGrid.Maximum = Convert.ToSingle(value);
             cMaxTemp = Convert.ToSingle(value);
             value = ConfigurationManager.AppSettings["Minimum"];
-            //customGrid.Minimun = Convert.ToSingle(value);
             cMinTemp = Convert.ToSingle(value);
 
             value = ConfigurationManager.AppSettings["RawData_Location"];
             customGrid.RawData_Location = value;
             value = ConfigurationManager.AppSettings["ResultData_Location"];
             customGrid.ResultData_Location = value;
-            //value = ConfigurationManager.AppSettings["Threshold"];
-            //customGrid.Threshold = Convert.ToSingle(value);
-
-            //value = ConfigurationManager.AppSettings["CAM1_Threshold1"];
-            //result.CAM1_ThresholdTemp[0] = Convert.ToSingle(value);
         }
 
         private void SaveConfiguration()
@@ -1376,7 +1377,7 @@ namespace Electric_Furnance_Monitoring_System
 
             // Saving POI Temperature
             string appSettingValue = "";
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 appSettingValue = "CAM1_Threshold" + (i + 1).ToString();
                 config.AppSettings.Settings[appSettingValue].Value = result.CAM1_ThresholdTemp[i].ToString();
@@ -1622,9 +1623,7 @@ namespace Electric_Furnance_Monitoring_System
             isLoggingRunning = false;
             LoggingTimer.Stop();    // tick timer 정지 시키고
             DIASDAQ.DDAQ_IRDX_FILE_CLOSE(irdxHandle_write); // 쓰고있던 irdx파일 닫고
-            DIASDAQ.DDAQ_IRDX_FILE_CLOSE(c2_irdxHandle_write);
             irdxHandle_write = IntPtr.Zero;     // 쓰기용 irdx handle 초기화
-            c2_irdxHandle_write = IntPtr.Zero;
             tickCount = 0;  // tick count 초기화
 
             propertyGrid1.Enabled = true;       // Propertygrid Enable
@@ -1638,10 +1637,15 @@ namespace Electric_Furnance_Monitoring_System
             Text_RawData.Close();
             Text_ResultData.Close();
 
-            c2_outputFile.Close();
-            c2_outputFile_Result.Close();
-            c2_Text_RawData.Close();
-            c2_Text_ResultData.Close();
+            if (DetectedDevices == 2)
+            {
+                DIASDAQ.DDAQ_IRDX_FILE_CLOSE(c2_irdxHandle_write);
+                c2_irdxHandle_write = IntPtr.Zero;
+                c2_outputFile.Close();
+                c2_outputFile_Result.Close();
+                c2_Text_RawData.Close();
+                c2_Text_ResultData.Close();
+            }
         }
 
         #endregion
@@ -1659,11 +1663,9 @@ namespace Electric_Furnance_Monitoring_System
                     FloatMaxTemp = TemperatureArray[i];
                 }
             }
-            MaxTemp = FloatMaxTemp.ToString();
+            MaxTemp = FloatMaxTemp.ToString("N1")+"℃";
             textBox3.Text = MaxTemp;
         }
-
-        
 
         public void CAM2_CompareMaxTemperature(float[] TemperatureArray)
         {
@@ -1677,12 +1679,11 @@ namespace Electric_Furnance_Monitoring_System
                     c2_FloatMaxTemp = TemperatureArray[i];
                 }
             }
-            MaxTemp = c2_FloatMaxTemp.ToString();
+            MaxTemp = c2_FloatMaxTemp.ToString("N1")+"℃";
             textBox4.Text = MaxTemp;
         }
 
-
-        private void DetectOPCServer()
+        /*private void DetectOPCServer()
         {
             try
             {
@@ -1725,6 +1726,21 @@ namespace Electric_Furnance_Monitoring_System
             {
                 MessageBox.Show("선택한 OPC 서버 연결이 실패하였습니다.\nError Message: ", ex.Message);
             }
+        }*/
+
+        private void ViewAdjust()
+        {
+            // 전체 ImageView 영역 width 조정
+            split_ViewToInfo.SplitterDistance = 1920 - propertyGrid1.Width - 310;
+
+            // 카메라별 ImageView 영역 Width 조정
+            split_CamToCam.Width = split_ViewToInfo.Panel1.Width / 2;
+
+            // CAM #1 영역 Height 조정
+            split_CAM1info.SplitterDistance = 70;
+            split_CAM1ChartGrid.SplitterDistance = 265;
+            split_CAM2info.SplitterDistance = split_CAM1info.Panel1.Height;
+            split_Cam2ChartGrid.SplitterDistance = split_CAM1ChartGrid.Panel1.Height;
         }
 
     }

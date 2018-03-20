@@ -90,15 +90,10 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripSeparator();
-            this.KeepNearButton = new System.Windows.Forms.ToolStripButton();
-            this.NearButton = new System.Windows.Forms.ToolStripButton();
-            this.FarButton = new System.Windows.Forms.ToolStripButton();
-            this.KeepFarButton = new System.Windows.Forms.ToolStripButton();
             this.RectROIDraw = new System.Windows.Forms.ToolStripButton();
+            this.RectROIDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.split_ViewToInfo)).BeginInit();
             this.split_ViewToInfo.Panel1.SuspendLayout();
@@ -137,7 +132,7 @@
             this.propertyGrid1.Location = new System.Drawing.Point(0, 51);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.NoSort;
-            this.propertyGrid1.Size = new System.Drawing.Size(244, 556);
+            this.propertyGrid1.Size = new System.Drawing.Size(244, 978);
             this.propertyGrid1.TabIndex = 1;
             // 
             // menuStrip1
@@ -150,7 +145,7 @@
             this.helpHToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1904, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -330,19 +325,21 @@
             this.split_ViewToInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.split_ViewToInfo.IsSplitterFixed = true;
             this.split_ViewToInfo.Location = new System.Drawing.Point(250, 51);
             this.split_ViewToInfo.Name = "split_ViewToInfo";
             // 
             // split_ViewToInfo.Panel1
             // 
             this.split_ViewToInfo.Panel1.Controls.Add(this.split_CamToCam);
-            this.split_ViewToInfo.Size = new System.Drawing.Size(1100, 556);
-            this.split_ViewToInfo.SplitterDistance = 907;
+            this.split_ViewToInfo.Size = new System.Drawing.Size(1654, 978);
+            this.split_ViewToInfo.SplitterDistance = 1363;
             this.split_ViewToInfo.TabIndex = 7;
             // 
             // split_CamToCam
             // 
             this.split_CamToCam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_CamToCam.IsSplitterFixed = true;
             this.split_CamToCam.Location = new System.Drawing.Point(0, 0);
             this.split_CamToCam.Name = "split_CamToCam";
             // 
@@ -353,13 +350,14 @@
             // split_CamToCam.Panel2
             // 
             this.split_CamToCam.Panel2.Controls.Add(this.split_Cam2UpToDown);
-            this.split_CamToCam.Size = new System.Drawing.Size(907, 556);
-            this.split_CamToCam.SplitterDistance = 459;
+            this.split_CamToCam.Size = new System.Drawing.Size(1363, 978);
+            this.split_CamToCam.SplitterDistance = 689;
             this.split_CamToCam.TabIndex = 0;
             // 
             // split_Cam1UpToDown
             // 
             this.split_Cam1UpToDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_Cam1UpToDown.IsSplitterFixed = true;
             this.split_Cam1UpToDown.Location = new System.Drawing.Point(0, 0);
             this.split_Cam1UpToDown.Name = "split_Cam1UpToDown";
             this.split_Cam1UpToDown.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -372,13 +370,14 @@
             // split_Cam1UpToDown.Panel2
             // 
             this.split_Cam1UpToDown.Panel2.Controls.Add(this.split_CAM1ChartGrid);
-            this.split_Cam1UpToDown.Size = new System.Drawing.Size(459, 556);
-            this.split_Cam1UpToDown.SplitterDistance = 363;
+            this.split_Cam1UpToDown.Size = new System.Drawing.Size(689, 978);
+            this.split_Cam1UpToDown.SplitterDistance = 638;
             this.split_Cam1UpToDown.TabIndex = 0;
             // 
             // split_CAM1info
             // 
             this.split_CAM1info.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_CAM1info.IsSplitterFixed = true;
             this.split_CAM1info.Location = new System.Drawing.Point(0, 0);
             this.split_CAM1info.Name = "split_CAM1info";
             this.split_CAM1info.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -390,51 +389,55 @@
             this.split_CAM1info.Panel1.Controls.Add(this.textBox1);
             this.split_CAM1info.Panel1.Controls.Add(this.label3);
             this.split_CAM1info.Panel1.Controls.Add(this.label1);
-            this.split_CAM1info.Size = new System.Drawing.Size(459, 363);
-            this.split_CAM1info.SplitterDistance = 54;
+            this.split_CAM1info.Size = new System.Drawing.Size(689, 638);
+            this.split_CAM1info.SplitterDistance = 94;
             this.split_CAM1info.TabIndex = 1;
             // 
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(352, 18);
+            this.textBox3.Location = new System.Drawing.Point(576, 26);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 3;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(296, 22);
+            this.label5.Font = new System.Drawing.Font("나눔바른고딕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(444, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 12);
+            this.label5.Size = new System.Drawing.Size(126, 34);
             this.label5.TabIndex = 1;
             this.label5.Text = "최고 온도";
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(192, 18);
+            this.textBox1.Location = new System.Drawing.Point(343, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.Size = new System.Drawing.Size(95, 21);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 23);
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(224, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(121, 34);
             this.label3.TabIndex = 1;
             this.label3.Text = "강번 No.";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(3, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 19);
+            this.label1.Size = new System.Drawing.Size(199, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "CAMERA #1";
             // 
@@ -443,23 +446,25 @@
             this.CAM1pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CAM1pictureBox.Location = new System.Drawing.Point(0, 0);
             this.CAM1pictureBox.Name = "CAM1pictureBox";
-            this.CAM1pictureBox.Size = new System.Drawing.Size(459, 363);
+            this.CAM1pictureBox.Size = new System.Drawing.Size(689, 638);
             this.CAM1pictureBox.TabIndex = 0;
             this.CAM1pictureBox.TabStop = false;
             // 
             // split_CAM1ChartGrid
             // 
             this.split_CAM1ChartGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_CAM1ChartGrid.IsSplitterFixed = true;
             this.split_CAM1ChartGrid.Location = new System.Drawing.Point(0, 0);
             this.split_CAM1ChartGrid.Name = "split_CAM1ChartGrid";
             this.split_CAM1ChartGrid.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.split_CAM1ChartGrid.Size = new System.Drawing.Size(459, 189);
-            this.split_CAM1ChartGrid.SplitterDistance = 132;
+            this.split_CAM1ChartGrid.Size = new System.Drawing.Size(689, 336);
+            this.split_CAM1ChartGrid.SplitterDistance = 234;
             this.split_CAM1ChartGrid.TabIndex = 0;
             // 
             // split_Cam2UpToDown
             // 
             this.split_Cam2UpToDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_Cam2UpToDown.IsSplitterFixed = true;
             this.split_Cam2UpToDown.Location = new System.Drawing.Point(0, 0);
             this.split_Cam2UpToDown.Name = "split_Cam2UpToDown";
             this.split_Cam2UpToDown.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -472,13 +477,14 @@
             // split_Cam2UpToDown.Panel2
             // 
             this.split_Cam2UpToDown.Panel2.Controls.Add(this.split_Cam2ChartGrid);
-            this.split_Cam2UpToDown.Size = new System.Drawing.Size(444, 556);
-            this.split_Cam2UpToDown.SplitterDistance = 363;
+            this.split_Cam2UpToDown.Size = new System.Drawing.Size(670, 978);
+            this.split_Cam2UpToDown.SplitterDistance = 638;
             this.split_Cam2UpToDown.TabIndex = 0;
             // 
             // split_CAM2info
             // 
             this.split_CAM2info.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_CAM2info.IsSplitterFixed = true;
             this.split_CAM2info.Location = new System.Drawing.Point(0, 0);
             this.split_CAM2info.Name = "split_CAM2info";
             this.split_CAM2info.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -490,51 +496,55 @@
             this.split_CAM2info.Panel1.Controls.Add(this.textBox2);
             this.split_CAM2info.Panel1.Controls.Add(this.label4);
             this.split_CAM2info.Panel1.Controls.Add(this.label2);
-            this.split_CAM2info.Size = new System.Drawing.Size(444, 363);
-            this.split_CAM2info.SplitterDistance = 54;
+            this.split_CAM2info.Size = new System.Drawing.Size(670, 638);
+            this.split_CAM2info.SplitterDistance = 94;
             this.split_CAM2info.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(297, 22);
+            this.label6.Font = new System.Drawing.Font("나눔바른고딕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(433, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 12);
+            this.label6.Size = new System.Drawing.Size(126, 34);
             this.label6.TabIndex = 4;
             this.label6.Text = "최고 온도";
             // 
             // textBox4
             // 
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(360, 16);
+            this.textBox4.Location = new System.Drawing.Point(565, 26);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 21);
+            this.textBox4.Size = new System.Drawing.Size(89, 21);
             this.textBox4.TabIndex = 4;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(191, 18);
+            this.textBox2.Location = new System.Drawing.Point(327, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(136, 22);
+            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(200, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(121, 34);
             this.label4.TabIndex = 1;
             this.label4.Text = "강번 No.";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(2, 18);
+            this.label2.Font = new System.Drawing.Font("나눔바른고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(3, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 19);
+            this.label2.Size = new System.Drawing.Size(191, 37);
             this.label2.TabIndex = 0;
             this.label2.Text = "CAMERA #2";
             // 
@@ -543,18 +553,19 @@
             this.CAM2pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CAM2pictureBox.Location = new System.Drawing.Point(0, 0);
             this.CAM2pictureBox.Name = "CAM2pictureBox";
-            this.CAM2pictureBox.Size = new System.Drawing.Size(444, 363);
+            this.CAM2pictureBox.Size = new System.Drawing.Size(670, 638);
             this.CAM2pictureBox.TabIndex = 0;
             this.CAM2pictureBox.TabStop = false;
             // 
             // split_Cam2ChartGrid
             // 
             this.split_Cam2ChartGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.split_Cam2ChartGrid.IsSplitterFixed = true;
             this.split_Cam2ChartGrid.Location = new System.Drawing.Point(0, 0);
             this.split_Cam2ChartGrid.Name = "split_Cam2ChartGrid";
             this.split_Cam2ChartGrid.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.split_Cam2ChartGrid.Size = new System.Drawing.Size(444, 189);
-            this.split_Cam2ChartGrid.SplitterDistance = 132;
+            this.split_Cam2ChartGrid.Size = new System.Drawing.Size(670, 336);
+            this.split_Cam2ChartGrid.SplitterDistance = 234;
             this.split_Cam2ChartGrid.TabIndex = 0;
             // 
             // toolStripSeparator1
@@ -597,18 +608,13 @@
             this.toolStripSeparator11,
             this.toolStripButton6,
             this.toolStripButton7,
-            this.toolStripButton9,
-            this.toolStripSeparator12,
-            this.toolStripButton10,
             this.toolStripButton11,
-            this.KeepNearButton,
-            this.NearButton,
-            this.FarButton,
-            this.KeepFarButton,
-            this.RectROIDraw});
+            this.RectROIDraw,
+            this.RectROIDelete,
+            this.toolStripButton12});
             this.toolStrip_Mainmenu.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_Mainmenu.Name = "toolStrip_Mainmenu";
-            this.toolStrip_Mainmenu.Size = new System.Drawing.Size(1350, 25);
+            this.toolStrip_Mainmenu.Size = new System.Drawing.Size(1904, 25);
             this.toolStrip_Mainmenu.TabIndex = 5;
             this.toolStrip_Mainmenu.Text = "toolStrip1";
             // 
@@ -731,70 +737,11 @@
             this.toolStripButton7.Text = "LogStop";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(129, 22);
-            this.toolStripButton9.Text = "VerifyCurrentFocus";
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(139, 22);
-            this.toolStripButton10.Text = "Control Able/Disable";
-            this.toolStripButton10.Click += new System.EventHandler(this.toolStripButton10_Click);
-            // 
             // toolStripButton11
             // 
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(6, 25);
             this.toolStripButton11.Visible = false;
-            // 
-            // KeepNearButton
-            // 
-            this.KeepNearButton.Image = ((System.Drawing.Image)(resources.GetObject("KeepNearButton.Image")));
-            this.KeepNearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.KeepNearButton.Name = "KeepNearButton";
-            this.KeepNearButton.Size = new System.Drawing.Size(109, 22);
-            this.KeepNearButton.Text = "KeepNearFocus";
-            this.KeepNearButton.Click += new System.EventHandler(this.KeepNearButton_Click);
-            // 
-            // NearButton
-            // 
-            this.NearButton.Image = ((System.Drawing.Image)(resources.GetObject("NearButton.Image")));
-            this.NearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NearButton.Name = "NearButton";
-            this.NearButton.Size = new System.Drawing.Size(83, 22);
-            this.NearButton.Text = "NearFocus";
-            this.NearButton.Click += new System.EventHandler(this.NearButton_Click);
-            // 
-            // FarButton
-            // 
-            this.FarButton.Image = ((System.Drawing.Image)(resources.GetObject("FarButton.Image")));
-            this.FarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FarButton.Name = "FarButton";
-            this.FarButton.Size = new System.Drawing.Size(74, 22);
-            this.FarButton.Text = "FarFocus";
-            this.FarButton.Click += new System.EventHandler(this.FarButton_Click);
-            // 
-            // KeepFarButton
-            // 
-            this.KeepFarButton.Image = ((System.Drawing.Image)(resources.GetObject("KeepFarButton.Image")));
-            this.KeepFarButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.KeepFarButton.Name = "KeepFarButton";
-            this.KeepFarButton.Size = new System.Drawing.Size(100, 22);
-            this.KeepFarButton.Text = "KeepFarFocus";
-            this.KeepFarButton.Click += new System.EventHandler(this.KeepFarButton_Click);
             // 
             // RectROIDraw
             // 
@@ -803,13 +750,35 @@
             this.RectROIDraw.Name = "RectROIDraw";
             this.RectROIDraw.Size = new System.Drawing.Size(71, 22);
             this.RectROIDraw.Text = "RectDOI";
+            this.RectROIDraw.Visible = false;
             this.RectROIDraw.Click += new System.EventHandler(this.RectROIDraw_Click);
+            // 
+            // RectROIDelete
+            // 
+            this.RectROIDelete.Image = ((System.Drawing.Image)(resources.GetObject("RectROIDelete.Image")));
+            this.RectROIDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RectROIDelete.Name = "RectROIDelete";
+            this.RectROIDelete.Size = new System.Drawing.Size(103, 22);
+            this.RectROIDelete.Text = "RectROIDelete";
+            this.RectROIDelete.Visible = false;
+            this.RectROIDelete.Click += new System.EventHandler(this.RectROIDelete_Click);
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton12.Text = "MaxTempTest";
+            this.toolStripButton12.Visible = false;
+            this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 619);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.split_ViewToInfo);
             this.Controls.Add(this.toolStrip_Mainmenu);
             this.Controls.Add(this.propertyGrid1);
@@ -921,15 +890,10 @@
         public System.Windows.Forms.ToolStripButton toolStripButton6;
         public System.Windows.Forms.ToolStripButton toolStripButton7;
         public System.Windows.Forms.ToolStripButton toolStripButton8;
-        public System.Windows.Forms.ToolStripButton toolStripButton9;
-        public System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        public System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripSeparator toolStripButton11;
-        private System.Windows.Forms.ToolStripButton KeepNearButton;
-        private System.Windows.Forms.ToolStripButton NearButton;
-        private System.Windows.Forms.ToolStripButton FarButton;
-        private System.Windows.Forms.ToolStripButton KeepFarButton;
         private System.Windows.Forms.ToolStripButton RectROIDraw;
+        private System.Windows.Forms.ToolStripButton RectROIDelete;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
     }
 }
 

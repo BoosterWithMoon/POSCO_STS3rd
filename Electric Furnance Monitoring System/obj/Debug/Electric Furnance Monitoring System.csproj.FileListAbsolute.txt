@@ -112,11 +112,7 @@ E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Debug\Electric_Furnance_Monitoring_System.ResultView.resources
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Debug\Electric_Furnance_Monitoring_System.TopView.CAM1_Info.resources
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Debug\Electric Furnance Monitoring System.csproj.GenerateResource.Cache
-E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.KEPServerExControls.dll
-E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.OpcClient.dll
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.OpcClient.xml
-E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.BrowseControls.dll
-E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.DA_Junction.dll
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.BrowseControls.xml
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\bin\Debug\Kepware.ClientAce.DA_Junction.xml
 E:\POSCO 전기로 모니터링\Electric Furnance Monitoring System(180207_1600)\Electric Furnance Monitoring System\obj\Debug\Electric_Furnance_Monitoring_System.SetThreshold.resources

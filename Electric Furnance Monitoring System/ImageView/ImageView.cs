@@ -202,22 +202,22 @@ namespace Electric_Furnance_Monitoring_System
                 m_bmp_ofs_x = (int)((wnd_sizex - m_bmp_size_x) / 2.0);
                 m_bmp_ofs_y = (int)((wnd_sizey - m_bmp_size_y) / 2.0);
 
+                
                 bmp = GET_BITMAP(hIRDX);
                 //if (bmp == null) return;
                 g = pb.CreateGraphics();
+
                 Graphics temp = Graphics.FromImage(bmp);
-                
-                //temp.DrawString(pointTemperatureData, new Font("Arial", 10), Brushes.Black,
-                //    new Point(Control.MousePosition.X-m_bmp_ofs_x, Control.MousePosition.Y-m_bmp_ofs_y));
-                //pb.Invalidate(new Rectangle(0, 0, 100, 100));
+
                 DrawPOI(hIRDX, pb, CAM1_ClickedPosition, CAM1_POICount, ref temp);
 
                 Point MousePosTemp = c1_imgView.pictureBox1.PointToClient(new Point(Control.MousePosition.X, Control.MousePosition.Y));
+                
                 temp.DrawString(pointTemperatureData+"℃", new Font("맑은 고딕", 10), Brushes.Black, new Point((int)((MousePosTemp.X/m_bmp_zoom) - m_bmp_ofs_x + 5), (int)((MousePosTemp.Y/m_bmp_zoom) - m_bmp_ofs_y - 20)));
-                //DrawRectROI(hIRDX, temp, pb);
+                DrawRectROI(hIRDX, temp, pb);
                 g.DrawImage((Image)bmp, m_bmp_ofs_x, m_bmp_ofs_y, m_bmp_size_x, m_bmp_size_y);
 
-                //OnMouseMove_ShowTemp(hIRDX, Control.MousePosition, pb);
+                if (bmp != null) bmp.Dispose();
             }
         }
 
@@ -295,6 +295,7 @@ namespace Electric_Furnance_Monitoring_System
                 c2_m_bmp_ofs_x = (int)((wnd_sizex - c2_m_bmp_size_x) / 2.0);
                 c2_m_bmp_ofs_y = (int)((wnd_sizey - c2_m_bmp_size_y) / 2.0);
 
+                //if (CAM2_bmp != null) CAM2_bmp.Dispose();
                 CAM2_bmp = GET_BITMAP(irdxHandle);
                 CAM2_g = pb.CreateGraphics();
                 Graphics gTemp = Graphics.FromImage(CAM2_bmp);
@@ -311,6 +312,7 @@ namespace Electric_Furnance_Monitoring_System
                 }
                 //CAM2_g.DrawImage(CAM2_bmp, m_bmp_ofs_x, m_bmp_ofs_y, m_bmp_size_x, m_bmp_size_y);
                 CAM2_g.DrawImage(CAM2_bmp, c2_m_bmp_ofs_x, c2_m_bmp_ofs_y, c2_m_bmp_size_x, c2_m_bmp_size_y);
+                if (CAM2_bmp != null) CAM2_bmp.Dispose();
             }
         }
 
@@ -363,26 +365,56 @@ namespace Electric_Furnance_Monitoring_System
             if (bmp == null) return;
             Pen rectDrawPen = new Pen(Brushes.White);
             g = Graphics.FromImage(bmp);
-            if (main.rectROIDraw && c1_imgView.clickedPoint!=Point.Empty && c1_imgView.clickedAfterUp!=Point.Empty)
+            
+            if (c1_imgView.clickedAfterUp != Point.Empty)
             {
-                int temp_topx = Convert.ToInt32(c1_imgView.clickedPoint.X * m_bmp_zoom);
-                int temp_topy = Convert.ToInt32(c1_imgView.clickedPoint.Y * m_bmp_zoom);
-                int temp_bottomx = Convert.ToInt32(c1_imgView.clickedAfterUp.X * m_bmp_zoom);
-                int temp_bottomy = Convert.ToInt32(c1_imgView.clickedAfterUp.Y * m_bmp_zoom);
-                            
-                //g.DrawRectangle(rectDrawPen, new Rectangle(c1_imgView.clickedPoint, c1_imgView.clickedAfterUp));
-                g.DrawRectangle(rectDrawPen, new Rectangle(temp_topx, temp_topy, temp_bottomx, temp_bottomy));
-                main.rectROIDraw = false;
-            }
-            else if (c1_imgView.clickedAfterUp != Point.Empty)
-            {
-                int temp_topx = Convert.ToInt32(c1_imgView.clickedPoint.X * m_bmp_zoom);
-                int temp_topy = Convert.ToInt32(c1_imgView.clickedPoint.Y * m_bmp_zoom);
-                int temp_bottomx = Convert.ToInt32(c1_imgView.clickedAfterUp.X * m_bmp_zoom);
-                int temp_bottomy = Convert.ToInt32(c1_imgView.clickedAfterUp.Y * m_bmp_zoom);
+                Point tempClickedPoint = c1_imgView.clickedPoint;
+                Point tempClickedAfterUp = c1_imgView.clickedAfterUp;
 
-                //g.DrawRectangle(rectDrawPen, new Rectangle(c1_imgView.clickedPoint.X, c1_imgView.clickedPoint.Y, c1_imgView.clickedAfterUp.X, c1_imgView.clickedAfterUp.Y));
-                g.DrawRectangle(rectDrawPen, new Rectangle(temp_topx, temp_topy, temp_bottomx, temp_bottomy));
+                int temp_lx = Convert.ToInt32(tempClickedPoint.X / m_bmp_zoom - m_bmp_ofs_x);
+                int temp_ly = Convert.ToInt32(tempClickedPoint.Y / m_bmp_zoom - m_bmp_ofs_y);
+                int temp_rx = Convert.ToInt32(tempClickedAfterUp.X / m_bmp_zoom - m_bmp_ofs_x);
+                int temp_ry = Convert.ToInt32(tempClickedAfterUp.Y / m_bmp_zoom - m_bmp_ofs_y);
+                g.DrawRectangle(rectDrawPen, new Rectangle(temp_lx, temp_ly, temp_rx-temp_lx, temp_ry-temp_ly));
+            }
+        }
+
+        public float MaxTempInRect = 0.0f;
+        public void CalculateRectROI(IntPtr irdxHandle)
+        {
+            if (bmp == null) return;
+            Point tempClickedPoint = c1_imgView.clickedPoint;
+            Point tempClickedAfterUp = c1_imgView.clickedAfterUp;
+            if (tempClickedPoint == Point.Empty || tempClickedAfterUp == Point.Empty) return;
+            else
+            {
+                ushort temp_x1 = Convert.ToUInt16(tempClickedPoint.X/m_bmp_zoom);
+                ushort temp_y1 = Convert.ToUInt16(tempClickedPoint.Y/m_bmp_zoom);
+                ushort temp_x2 = Convert.ToUInt16(tempClickedAfterUp.X/m_bmp_zoom);
+                ushort temp_y2 = Convert.ToUInt16(tempClickedAfterUp.Y/m_bmp_zoom);
+
+                // RectROI 사이즈에 맞는 정적 2차원배열 생성
+                float[,] RectROIData = new float[temp_x2 - temp_x1, temp_y2 - temp_y1];
+                int elementX = 0, elementY = 0;
+                for (ushort i = temp_x1; i < temp_x2; i++)
+                {
+                    for (ushort k = temp_y1; k < temp_y2; k++)
+                    {
+                        DIASDAQ.DDAQ_IRDX_PIXEL_GET_DATA_POINT(irdxHandle, i, k, ref RectROIData[elementX,elementY]);
+                        elementY++;
+                    }
+                    elementX++; elementY = 0;
+                }
+
+                // RectROI 내 최고온도값 계산
+                for(ushort i=0; i<temp_x2-temp_x1; i++)
+                {
+                    for(ushort j=0; j<temp_y2-temp_y1; j++)
+                    {
+                        if (RectROIData[i, j] >= MaxTempInRect) MaxTempInRect = RectROIData[i, j];
+                        else if (RectROIData[i, j] < MaxTempInRect) continue;
+                    }
+                }
             }
         }
 

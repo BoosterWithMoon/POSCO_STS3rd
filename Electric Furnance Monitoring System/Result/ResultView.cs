@@ -39,6 +39,7 @@ namespace Electric_Furnance_Monitoring_System
         {
             this.main = _main;
             InitializeComponent();
+            ShowingAreaAdjust();
 
             CAM1_AlarmInitialize();
             CAM2_AlarmInitialize();
@@ -54,6 +55,11 @@ namespace Electric_Furnance_Monitoring_System
             //    CAM2_ThresholdTemp[i] = 0.0f;
             //}
             LoadConfiguration_Temperature();
+        }
+
+        private void ShowingAreaAdjust()
+        {
+            AlartToConnection.SplitterDistance = main.split_CAM1info.Panel1.Height + main.split_CAM1info.Panel2.Height + main.split_CAM1ChartGrid.Panel1.Height;
         }
 
         System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
