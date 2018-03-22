@@ -209,7 +209,7 @@
             // 
             this.startToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("startToolStripMenuItem.Image")));
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.startToolStripMenuItem.Text = "Start";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
@@ -217,7 +217,7 @@
             // 
             this.stopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.Image")));
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
@@ -284,7 +284,7 @@
             // 
             this.drawROIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("drawROIToolStripMenuItem.Image")));
             this.drawROIToolStripMenuItem.Name = "drawROIToolStripMenuItem";
-            this.drawROIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.drawROIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.drawROIToolStripMenuItem.Text = "Draw ROI";
             this.drawROIToolStripMenuItem.Click += new System.EventHandler(this.drawROIToolStripMenuItem_Click);
             // 
@@ -292,7 +292,7 @@
             // 
             this.moveModeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("moveModeToolStripMenuItem.Image")));
             this.moveModeToolStripMenuItem.Name = "moveModeToolStripMenuItem";
-            this.moveModeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.moveModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.moveModeToolStripMenuItem.Text = "Move Mode";
             this.moveModeToolStripMenuItem.Click += new System.EventHandler(this.moveModeToolStripMenuItem_Click);
             // 
@@ -300,7 +300,7 @@
             // 
             this.deleteROIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteROIToolStripMenuItem.Image")));
             this.deleteROIToolStripMenuItem.Name = "deleteROIToolStripMenuItem";
-            this.deleteROIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.deleteROIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteROIToolStripMenuItem.Text = "Delete ROI";
             this.deleteROIToolStripMenuItem.Click += new System.EventHandler(this.deleteROIToolStripMenuItem_Click);
             // 
@@ -316,7 +316,7 @@
             // 
             this.aboutToolStripMenuItem.Image = global::Electric_Furnance_Monitoring_System.Properties.Resources.help;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

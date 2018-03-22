@@ -252,6 +252,5 @@ namespace Electric_Furnance_Monitoring_System
         {
             /*DialogResult dr = */thresholdForm.ShowDialog();
         }
-
     }
 }
